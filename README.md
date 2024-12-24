@@ -8,4 +8,5 @@ pnpm add next-auth@beta
 npx auth secret  // Add the generated AUTH_SECRET into the right .env* file
 // Create auth.ts
 // Create /app/api/auth/[...nextauth]/route.ts
+pnpm add @prisma/client @auth/prisma-adapter
 ```
