@@ -4,4 +4,6 @@ pnpm add prisma --save-dev
 npx prisma init
 pnpm install @prisma/client
 // Create primsa.ts for adding singleton
+pnpm add next-auth@beta
+
 ```
