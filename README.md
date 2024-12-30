@@ -17,6 +17,16 @@ pnpm exec prisma generate
 npx prisma db push // Synchronize with Neon db
 // Add Posts to schema.prisma
 npx prisma db push // Synchronize with Neon db
+// Create page.tsx, /components, /admin, /font
+// Update the path to prisma.ts everywhere -> import { prisma } from "@/lib/prisma"
+
+// Generate NEXTAUTH_SECRET and NEXTAUTH_URL environment variable ?
+
+// TODO :
+//    - create the CRUD api
+//    - create the post creation form
+//    - update relation between users and posts
+//    - display post link to the connected user only
 ```
 
 # Ressources
