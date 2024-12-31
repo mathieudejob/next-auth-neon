@@ -1,10 +1,8 @@
 import { auth } from "@/lib/auth";
-import { prisma } from "@/lib/prisma";
 import Link from "next/link";
 import SessionData from "../components/SessionData";
 
 export default async function Posts() {
-  const posts = await prisma.post.findMany();
   const session = await auth();
 
   return (

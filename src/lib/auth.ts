@@ -1,6 +1,6 @@
 import NextAuth from "next-auth";
 import "next-auth/jwt";
-import type { NextAuthOptions } from "next-auth";
+import { NextAuthConfig } from "next-auth";
 import Google from "next-auth/providers/google";
 import LinkedIn from "next-auth/providers/linkedin";
 import Resend from "next-auth/providers/resend";
@@ -27,7 +27,7 @@ const config = {
     strategy: "jwt", // Optional: If you want to use JWT instead of database sessions
     // Force to JWT because set to 'database' while providing adapter
   },
-} satisfies NextAuthOptions;
+} satisfies NextAuthConfig;
 
 export const { handlers, auth, signIn, signOut } = NextAuth(config);
 

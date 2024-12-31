@@ -4,13 +4,13 @@ import { SessionProvider } from "next-auth/react";
 import { auth } from "@/lib/auth";
 
 interface PostPageParams {
-  params: {
-    id: string;
-  };
+  params: Promise<{ id: string }>;
 }
 
 export default async function PostPage({ params }: PostPageParams) {
   const session = await auth();
+  const { id } = await params;
+
   if (session?.user) {
     // TODO: Look into https://react.dev/reference/react/experimental_taintObjectReference
     // filter out sensitive data before passing to client.
@@ -23,7 +23,7 @@ export default async function PostPage({ params }: PostPageParams) {
 
   const post = await prisma.post.findUnique({
     where: {
-      id: params.id,
+      id,
     },
   });
 
