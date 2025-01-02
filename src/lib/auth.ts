@@ -10,15 +10,15 @@ import { PrismaAdapter } from "@auth/prisma-adapter";
 const config = {
   providers: [
     Google({
-      clientId: process.env.AUTH_GOOGLE_ID || "",
-      clientSecret: process.env.AUTH_GOOGLE_SECRET || "",
+      clientId: process.env.GOOGLE_CLIENT_ID || "",
+      clientSecret: process.env.GOOGLE_CLIENT_SECRET || "",
     }),
     LinkedIn({
       clientId: process.env.LINKEDIN_CLIENT_ID,
       clientSecret: process.env.LINKEDIN_CLIENT_SECRET,
     }),
     Resend({
-      apiKey: process.env.AUTH_RESEND_KEY,
+      apiKey: process.env.RESEND_API_KEY,
       from: "no-reply@tik-downloader.com",
     }),
   ],
