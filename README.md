@@ -19,6 +19,7 @@ npx prisma db push // Synchronize with Neon db
 npx prisma db push // Synchronize with Neon db
 // Create page.tsx, /components, /admin, /font
 // Update the path to prisma.ts everywhere -> import { prisma } from "@/lib/prisma"
+// Set GOOGLE_CLIENT_ID, GOOGLE_CLIENT_SECRET, LINKEDIN_CLIENT_ID, LINKEDIN_CLIENT_SECRET, RESEND_API_KEY on Vercel
 
 // Generate NEXTAUTH_SECRET and NEXTAUTH_URL environment variable ?
 
