@@ -4,7 +4,8 @@ import { auth } from "./lib/auth";
 
 export async function middleware(req: NextRequest) {
   // Retrieve the token (this will include user information if they are logged in)
-  const session = auth();
+  const session = await auth();
+  console.log(session);
 
   const { pathname } = req.nextUrl;
 
