@@ -27,19 +27,37 @@ const config = {
     strategy: "jwt", // Optional: If you want to use JWT instead of database sessions
     // Force to JWT because set to 'database' while providing adapter
   },
+  callbacks: {
+    jwt({ token, user }) {
+      if (user) {
+        // User is available during sign-in
+        token.id = user.id ?? "session error - undefined user id";
+      }
+      return token;
+    },
+    session({ session, token }) {
+      session.user.id = token.id;
+      return session;
+    },
+  },
 } satisfies NextAuthConfig;
 
 export const { handlers, auth, signIn, signOut } = NextAuth(config);
 
-// Necessary ??
-declare module "next-auth" {
-  interface Session {
-    accessToken?: string;
+// Extends types
+declare module "next-auth/jwt" {
+  interface JWT {
+    id: string;
   }
 }
 
-declare module "next-auth/jwt" {
-  interface JWT {
-    accessToken?: string;
+declare module "next-auth" {
+  interface Session {
+    user: {
+      id: string;
+      name: string;
+      email: string;
+      image: string;
+    };
   }
 }

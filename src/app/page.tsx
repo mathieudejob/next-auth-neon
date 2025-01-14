@@ -12,7 +12,7 @@ export default async function Home() {
         <Link href={"/posts"}>Posts Page</Link>
         {session ? (
           <div>
-            <p>Welcome, {session.user?.name || "User"}!</p>
+            <p>Welcome, {session.user?.name || "User"} !</p>
             <SignOut />
           </div>
         ) : (
