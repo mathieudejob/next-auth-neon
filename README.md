@@ -30,6 +30,21 @@ npx prisma db push // Synchronize with Neon db
 //    - display post link to the connected user only
 ```
 
+# Prisma migrate
+
+- Use `prisma db push` to apply schema changes without generating migration files.
+- Migration files (`prisma/migrations`) track schema changes and help recreate the schema in other environments.
+- To replicate the database _with content_, export/import the database using tools like `pg_dump` or write a Prisma seed script.
+- For version-controlled schema evolution, migrations are highly recommended, even if they aren’t strictly mandatory.
+
+* Troubleshooting : Drift detected between the local schema file and db -> `prisma migrate dev` requesting the db reset (**_how to avoid it after each schema changes ???_**)
+
+# Extend Session
+
+In order to extend the session object, for instance to add the user ID, we must use the callbacks to add and expose the user ID.
+Here is an example : https://authjs.dev/guides/extending-the-session
+
 # Ressources
 
 - Prisma client : https://www.prisma.io/docs/getting-started/setup-prisma/start-from-scratch/relational-databases/install-prisma-client-typescript-postgresql
+- Prisma migrate workflow : https://www.prisma.io/docs/orm/prisma-migrate/workflows/troubleshooting
